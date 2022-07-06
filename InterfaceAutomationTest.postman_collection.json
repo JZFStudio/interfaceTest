@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "1c822c24-87e9-4277-8810-526f5356b5e7",
+		"name": "InterfaceAutomationTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3143699"
+	},
+	"item": [
+		{
+			"name": "http://10.0.104.78:30039/api/parentRuntimeTask?searchStr&pageNum=1&pageSize=20",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"测试响应头内容类型为application/json\", function() {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"tests[\"响应时间小于200毫秒\"] = responseTime < 200;\r",
+							"\r",
+							"pm.test(\"响应状态为200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://10.0.104.78:30039/api/parentRuntimeTask?searchStr&pageNum=1&pageSize=20",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"104",
+						"78"
+					],
+					"port": "30039",
+					"path": [
+						"api",
+						"parentRuntimeTask"
+					],
+					"query": [
+						{
+							"key": "searchStr",
+							"value": null
+						},
+						{
+							"key": "pageNum",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://10.0.104.78:30060/api/gcpc/lastReleaseVersion?versionRequestId=1435",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "userId",
+						"value": "jiaozf",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://10.0.104.78:30060/api/gcpc/lastReleaseVersion?versionRequestId=1435",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"104",
+						"78"
+					],
+					"port": "30060",
+					"path": [
+						"api",
+						"gcpc",
+						"lastReleaseVersion"
+					],
+					"query": [
+						{
+							"key": "versionRequestId",
+							"value": "1435"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://10.0.104.78:30060/api/gcpc/queryConfigByType?codeType=PRODUCT_GIT_REPOSITORY",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "userId",
+						"value": "jiaozf",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://10.0.104.78:30060/api/gcpc/queryConfigByType?codeType=PRODUCT_GIT_REPOSITORY",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"104",
+						"78"
+					],
+					"port": "30060",
+					"path": [
+						"api",
+						"gcpc",
+						"queryConfigByType"
+					],
+					"query": [
+						{
+							"key": "codeType",
+							"value": "PRODUCT_GIT_REPOSITORY"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
